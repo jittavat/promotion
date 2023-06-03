@@ -1,5 +1,5 @@
 class Promotion:
-    def __init__(self, promotion_code: str, qty: float, barcode: str, discount: float):
+    def __init__(self, promotion_code: str, qty: int, barcode: str, discount: float):
         self.barcode = barcode
         self.qty = qty
         self.promotion_code = promotion_code
@@ -13,6 +13,7 @@ class Promotion:
         return f"<promotion_code: {self.promotion_code}, qty: {self.qty}, barcode: {self.barcode}, discount: " \
                f"{self.discount}>"
 
+    @property
     def __members(self):
         return self.promotion_code, self.barcode
 

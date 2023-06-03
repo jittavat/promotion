@@ -10,14 +10,15 @@ class SKU:
     def __repr__(self) -> str:
         return f"<barcode: {self.barcode}, name: {self.name}, price: {self.price}>"
 
+    @property
     def __members(self):
-        return self.barcode
+        return self.barcode,
 
     def __eq__(self, other):
         if type(other) is type(self):
-            return self.__members() == other.__members
+            return self.__members == other.__members
         else:
             return False
 
     def __hash__(self):
-        return hash(self.__members())
+        return hash(self.__members)
