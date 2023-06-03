@@ -2,6 +2,7 @@ from cart import Cart
 from promotion import Promotion
 from sku import SKU
 from typing import Tuple
+import time
 
 
 def main(barcodes: Tuple[str]):
@@ -19,8 +20,11 @@ def main(barcodes: Tuple[str]):
                                    range(1, 6)]
 
     skus = [all_skus[barcode] for barcode in barcodes]
+
+    start_time = time.process_time()
     cart = Cart(skus, all_promotions)
     print(cart.get_price())
+    print("Execution time %f seconds" % (time.process_time() - start_time))
 
 
 if __name__ == '__main__':
